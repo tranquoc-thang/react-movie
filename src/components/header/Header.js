@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useContext } from "react";
+
+import { UserContext } from "../../App";
 
 import { Link, useLocation } from "react-router-dom";
 
@@ -19,6 +21,10 @@ const headerNav = [
     display: "TV Series",
     path: "/tv",
   },
+  {
+    display: "Cast",
+    path: "/cast",
+  },
 ];
 
 const Header = () => {
@@ -26,7 +32,13 @@ const Header = () => {
 
   const { pathname } = useLocation();
 
+  const { user, setUser } = useContext(UserContext);
+
   const active = headerNav.findIndex((e) => e.path === pathname);
+
+  const logout = () => {
+    setUser(null);
+  };
 
   useEffect(() => {
     const shrinkHeader = () => {
@@ -50,7 +62,7 @@ const Header = () => {
       <div className="header__wrap container">
         <div className="logo">
           <img src={logo} alt="" />
-          <Link to="/">tMovies</Link>
+          <Link to="/">MoviesHD</Link>
         </div>
         <ul className="header__nav">
           {headerNav.map((e, i) => (
@@ -58,6 +70,17 @@ const Header = () => {
               <Link to={e.path}>{e.display}</Link>
             </li>
           ))}
+          {user ? (
+            <li>
+              <Link className="user__logging" onClick={logout}>
+                Logout, {user.username}
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

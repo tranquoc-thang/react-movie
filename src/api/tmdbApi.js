@@ -42,13 +42,21 @@ const tmdbApi = {
   },
   credits: (cate, id) => {
     const url =
-      category[cate] + "/" + id + "/credits" + `?api_key=${apiConfig.apiKey}`;
-    return axiosClient.get(url, { parmas: {} });
+      category[cate] + "/" + id + `/credits+?api_key=${apiConfig.apiKey}`;
+    return axiosClient.get(url, { params: {} });
   },
   similar: (cate, id) => {
     const url =
-      category[cate] + "/" + id + "/similar" + `?api_key=${apiConfig.apiKey}`;
-    return axiosClient.get(url, { parmas: {} });
+      category[cate] + "/" + id + `/similar?api_key=${apiConfig.apiKey}`;
+    return axiosClient.get(url, { params: {} });
+  },
+  people: (params) => {
+    const url = `person/popular?api_key=${apiConfig.apiKey}`;
+    return axiosClient.get(url, params);
+  },
+  searchPeople: (params) => {
+    const url = `search/person?api_key=${apiConfig.apiKey}`;
+    return axiosClient.get(url, params);
   },
 };
 

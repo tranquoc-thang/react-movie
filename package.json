@@ -13,8 +13,10 @@
     "react-router-dom": "^6.4.2",
     "react-script": "^2.0.5",
     "react-scripts": "5.0.1",
+    "react-star-ratings": "^2.3.0",
     "sass": "^1.55.0",
     "swiper": "^8.2.2",
+    "vercel": "^28.4.12",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

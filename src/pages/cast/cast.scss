@@ -1,0 +1,7 @@
+@use "../../scss/" as *;
+
+.cast__item {
+  .cast__img img {
+    border-radius: $border-radius;
+  }
+}

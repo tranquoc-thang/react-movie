@@ -1,0 +1,68 @@
+@use "../../scss/" as *;
+
+.auth {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .form-auth {
+    margin: auto;
+    width: 40%;
+    border-radius: $border-radius;
+    background-color: rgba($black, 0.6);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem;
+
+    @include tablet {
+      width: 60%;
+    }
+
+    @include mobile {
+      width: 80%;
+    }
+
+    & > * {
+      margin-bottom: 2rem;
+    }
+
+    & h2 {
+      margin-left: 0.3rem;
+      margin-bottom: 0;
+    }
+
+    .form-item {
+      position: relative;
+      margin-bottom: 0.3rem;
+      margin-top: 2rem;
+
+      & .form-input {
+        width: 100%;
+        height: 3rem;
+      }
+
+      & i {
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    & button {
+      height: 3rem;
+      margin-top: 2rem;
+    }
+  }
+}
+
+span.validate__message {
+  color: $main-color;
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 0.3rem !important;
+}

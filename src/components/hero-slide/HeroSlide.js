@@ -12,6 +12,8 @@ import apiConfig from "../../api/apiConfig";
 
 import "./hero-slide.scss";
 
+import StarRatings from "react-star-ratings";
+
 function HeroSlide() {
   SwiperCore.use([Autoplay]);
 
@@ -94,6 +96,14 @@ const HeroSlideItem = (props) => {
       <div className="hero-slide__item__content container">
         <div className="hero-slide__item__content__info">
           <h2 className="title">{item.title}</h2>
+          <StarRatings
+            rating={item.vote_average / 2}
+            starRatedColor="yellow"
+            numberOfStars={5}
+            name="rating"
+            starDimension="30px"
+            starSpacing="3px"
+          />
           <div className="overview">{item.overview}</div>
           <div className="btns">
             <Button onClick={() => navigate("/movie/" + item.id)}>

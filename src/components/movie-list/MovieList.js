@@ -4,10 +4,7 @@ import "./movie-list.scss";
 import PropTypes from "prop-types";
 
 import { SwiperSlide, Swiper } from "swiper/react";
-import { Link } from "react-router-dom";
 
-import Button from "../button/button";
-import apiConfig from "../../api/apiConfig";
 import tmdbApi, { category } from "../../api/tmdbApi";
 import MovieCard from "../movie-card/MovieCard";
 
@@ -33,6 +30,7 @@ const MovieList = (props) => {
       setItems(response.results);
     };
     getList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
